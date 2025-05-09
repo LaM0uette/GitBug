@@ -1,0 +1,97 @@
+﻿:root {
+    
+    /* Font */
+    --font: 'maxxi';
+    --font-bold: 'maxxi-bold';
+    --font-light: 'maxxi-light';
+    --font-thin: 'maxxi-thin';
+    --font-extras: 'maxxi-extras';
+    
+    /* Color */
+    
+    /* Light */
+    --light-primary: #f8f9ff;
+    --light-secondary: #ffffff;
+    --light-tertiary: #e1e5f2;
+    --light-text-primary: #334a7a;
+    --light-text-secondary: #6c89c8;
+    --light-text-tertiary: #92a6d6;
+
+    --light-cell-commit-0: #f0f0fa;
+    --light-cell-commit-1: #e0e5ff;
+    --light-cell-commit-2: #c9d4ff;
+    --light-cell-commit-3: #b1c3ff;
+    --light-cell-commit-4: #99b3ff;
+
+    --light-cell-tested: #bbdeff;
+    --light-cell-safe-zone: #c7f0d2;
+    --light-cell-marked-safe: #fff0c1;
+    --light-cell-bug: #ffcbd1;
+    --light-bug-icon: #f7768e;
+
+    --light-success: #9ece6a;
+    --light-warning: #e0af68;
+    --light-error: #f7768e;
+    --light-info: #7aa2f7;
+
+    /* Dark Theme - Vibrant Pastel Dark */
+    --dark-primary: #1a1b26;
+    --dark-secondary: #24283b;
+    --dark-tertiary: #3b4261;
+    --dark-text-primary: #c0caf5;
+    --dark-text-secondary: #9aa5ce;
+    --dark-text-tertiary: #565f89;
+
+    /* Game Elements - Dark Theme */
+    --dark-cell-commit-0: #292e42;
+    --dark-cell-commit-1: #323957;
+    --dark-cell-commit-2: #3b446c;
+    --dark-cell-commit-3: #445082;
+    --dark-cell-commit-4: #4e5c98;
+
+    --dark-cell-tested: #2e4e7a;
+    --dark-cell-safe-zone: #355e43;
+    --dark-cell-marked-safe: #5c5342;
+    --dark-cell-bug: #5c3c42;
+    --dark-bug-icon: #f7768e;
+
+    --dark-success: #9ece6a;
+    --dark-warning: #e0af68;
+    --dark-error: #f7768e;
+    --dark-info: #7dcfff;
+
+    
+    /* Default */
+    --primary: var(--light-primary);
+    --secondary: var(--light-secondary);
+    --tertiary: var(--light-tertiary);
+    --text-primary: var(--light-text-primary);
+    --text-secondary: var(--light-text-secondary);
+    --text-tertiary: var(--light-text-tertiary);
+
+    --cell-commit-0: var(--light-cell-commit-0);
+    --cell-commit-1: var(--light-cell-commit-1);
+    --cell-commit-2: var(--light-cell-commit-2);
+    --cell-commit-3: var(--light-cell-commit-3);
+    --cell-commit-4: var(--light-cell-commit-4);
+
+    --cell-tested: var(--light-cell-tested);
+    --cell-safe-zone: var(--light-cell-safe-zone);
+    --cell-marked-safe: var(--light-cell-marked-safe);
+    --cell-bug: var(--light-cell-bug);
+    --bug-icon: var(--light-bug-icon);
+
+    --success: var(--light-success);
+    --warning: var(--light-warning);
+    --error: var(--light-error);
+    --info: var(--light-info);
+}
+
+body {
+    background-color: var(--primary);
+    color: var(--text-primary);
+    font-family: var(--font), Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
