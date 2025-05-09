@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitBug", "GitBug\GitBug\GitBug.csproj", "{FF3DD054-CA9C-45E9-8B80-13C78FCDCE40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GitBug.Client", "GitBug\GitBug.Client\GitBug.Client.csproj", "{E7E8A982-9DB1-444A-8EF7-E24FD5314EA1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF3DD054-CA9C-45E9-8B80-13C78FCDCE40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF3DD054-CA9C-45E9-8B80-13C78FCDCE40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF3DD054-CA9C-45E9-8B80-13C78FCDCE40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF3DD054-CA9C-45E9-8B80-13C78FCDCE40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7E8A982-9DB1-444A-8EF7-E24FD5314EA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7E8A982-9DB1-444A-8EF7-E24FD5314EA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7E8A982-9DB1-444A-8EF7-E24FD5314EA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7E8A982-9DB1-444A-8EF7-E24FD5314EA1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
