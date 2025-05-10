@@ -1,8 +1,23 @@
 ﻿@page "/"
 @inherits HomeBase
 
-<PageTitle>Home</PageTitle>
+<PageTitle>GitBug</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="page">
+    
+    <h1 class="title">GitBug</h1>
+    <p class="description">A strategic game that transforms GitHub's contribution grid into a bug-hunting challenge - a reverse-minesweeper where more commits mean more bugs!</p>
 
-Welcome to your new app.
+    <label for="input-text" class="input-text__label">Enter a Github username</label>
+    <input id="input-text" 
+           class="input-text" 
+           value="@Value" 
+           placeholder="ex: LaM0uette" 
+           spellcheck="false"
+           @oninput="OnInputChanged"/>
+    
+    @if (!string.IsNullOrEmpty(Value))
+    {
+    }
+    
+</div>

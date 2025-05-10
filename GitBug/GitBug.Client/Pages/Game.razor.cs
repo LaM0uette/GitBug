@@ -1,11 +1,10 @@
 ﻿using System.Text.Json;
-using System.Text.Json.Serialization;
 using GitBug.Shared;
 using Microsoft.AspNetCore.Components;
 
-namespace GitBug.Client.Pages;
+namespace GitBug.Client;
 
-public class HomeBase : ComponentBase
+public class GameBase : ComponentBase
 {
     [Inject] private HttpClient _httpClient { get; set; } = null!;
     
