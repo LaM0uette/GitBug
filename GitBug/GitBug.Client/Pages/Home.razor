@@ -26,7 +26,7 @@
                         ValueChanged="OnValueChanged"
                         Validated="OnValidated"/>
 
-            @if (!string.IsNullOrEmpty(Value) && AvailableYears is not null && AvailableYears.Count > 0)
+            @if (AvailableYears is not null && AvailableYears.Count > 0)
             {
                 <select @bind="SelectedYear">
                     @foreach (int year in AvailableYears)

@@ -8,8 +8,6 @@ public class HomeBase : ComponentBase
 {
     #region Statements
 
-    [Parameter] public string Value { get; set; } = string.Empty;
-    
     protected List<int>? AvailableYears;
     protected int SelectedYear;
     

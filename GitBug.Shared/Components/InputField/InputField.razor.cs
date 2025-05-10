@@ -21,38 +21,38 @@ public class InputFieldBase : ComponentBase
 
     #region Methods
     
-    protected async Task HandleBlur()
+    protected void HandleBlur()
     {
         if (string.IsNullOrWhiteSpace(Value))
             return;
 
-        await Validated.InvokeAsync(Value);
+        Validated.InvokeAsync(Value);
     }
     
-    protected async Task HandleKeyDown(KeyboardEventArgs e)
+    protected void HandleKeyDown(KeyboardEventArgs e)
     {
         if (e.Key == "Enter")
         {
             if (string.IsNullOrWhiteSpace(Value))
                 return;
 
-            await Validated.InvokeAsync(Value);
+            Validated.InvokeAsync(Value);
         }
     }
 
-    protected async Task OnInputChanged(ChangeEventArgs eventArgs)
+    protected void OnInputChanged(ChangeEventArgs eventArgs)
     {
         if (eventArgs.Value is string inputString)
         {
             Value = inputString;
-            await ValueChanged.InvokeAsync(inputString);
+            ValueChanged.InvokeAsync(inputString);
         }
     }
     
-    protected async Task ClearInput()
+    protected void ClearInput()
     {
         Value = string.Empty;
-        await OnInputChanged(new ChangeEventArgs { Value = string.Empty });
+        OnInputChanged(new ChangeEventArgs { Value = string.Empty });
     }
     
     #endregion
