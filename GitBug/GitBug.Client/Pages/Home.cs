@@ -1,4 +1,6 @@
 ﻿using System.Text.Json;
+using System.Text.Json.Serialization;
+using GitBug.Shared;
 using Microsoft.AspNetCore.Components;
 
 namespace GitBug.Client.Pages;
@@ -9,46 +11,23 @@ public class HomeBase : ComponentBase
     
     protected override async Task OnInitializedAsync()
     {
-        var url = $"https://github-contributions-api.jogruber.de/v4/LaM0uette";
+        var username = "LaM0uette";
+        var url = $"https://github-contributions-api.jogruber.de/v4/{username}";
         var request = new HttpRequestMessage(HttpMethod.Get, url);
-        request.Headers.UserAgent.ParseAdd("BlazorApp");
+        request.Headers.UserAgent.ParseAdd("GitBug");
 
         HttpResponseMessage response = await _httpClient.SendAsync(request);
         if (response.IsSuccessStatusCode)
         {
             string content = await response.Content.ReadAsStringAsync();
+            var data = JsonSerializer.Deserialize<ContributionsDTO>(content);
             
-            ContributionData data = JsonSerializer.Deserialize<ContributionData>(content) 
-                ?? throw new JsonException("Failed to deserialize JSON response");; 
+            foreach (KeyValuePair<int, int> entry in data.TotalByYears)
+                Console.WriteLine($"Year {entry.Key}: {entry.Value}");
         
-            Console.WriteLine("Totaux par année :");
-            foreach (KeyValuePair<string, int> entry in data.total)
-            {
-                Console.WriteLine($"Année {entry.Key}: {entry.Value}");
-            }
-        
-            // Afficher les contributions
-            Console.WriteLine("\nContributions :");
-            foreach (Contribution contribution in data.contributions)
-            {
-                Console.WriteLine($"Date: {contribution.date}, Nombre: {contribution.count}, Niveau: {contribution.level}");
-            }
-        
-            // Exemple d'accès à une contribution spécifique
-            Console.WriteLine($"\nPremière contribution - Date: {data.contributions[0].date}, Nombre: {data.contributions[0].count}");
+            Console.WriteLine($"\nFirst contribution - Date: {data.Contributions[0].Date:M/d/yyyy}, Count: {data.Contributions[0].Count}");
+            Console.WriteLine($"\nFirst contribution - Date: {data.Contributions[1].Date:M/d/yyyy}, Count: {data.Contributions[1].Count}");
+            Console.WriteLine($"\nFirst contribution - Date: {data.Contributions[2].Date:M/d/yyyy}, Count: {data.Contributions[2].Count}");
         }
     }
-}
-
-public class Contribution
-{
-    public string date { get; set; }
-    public int count { get; set; }
-    public int level { get; set; }
-}
-
-public class ContributionData
-{
-    public Dictionary<string, int> total { get; set; }
-    public List<Contribution> contributions { get; set; }
 }
