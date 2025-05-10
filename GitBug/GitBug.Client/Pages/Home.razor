@@ -23,17 +23,23 @@
             
             <InputField Label="Enter a Github username:"
                         Placeholder="ex: LaM0uette"
+                        Width="100%"
                         ValueChanged="OnValueChanged"
-                        Validated="OnValidated"
-                        Width="100%"/>
+                        Validated="OnValidated" />
 
             <VerticalSpacer Value="20"/>
                 
             <DropDown Label="Select a year:"
                       Options="AvailableYears"
                       Selected="@SelectedYear"
-                      SelectedChanged="OnYearChanged"
-                      Width="100%"/>
+                      Width="100%"
+                      SelectedChanged="OnYearChanged" />
+            
+            <VerticalSpacer Value="40"/>
+            
+            <ClickButton Width="100%" Height="60px" FontSize="2.2em" OnPointerUp="OnStartGameButtonClicked">
+                START GAME
+            </ClickButton>
 
         </div>
         

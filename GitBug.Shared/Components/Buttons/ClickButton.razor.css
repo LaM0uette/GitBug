@@ -1,0 +1,23 @@
+﻿.click-button
+{
+    color: var(--color-text-primary);
+    background-color: transparent;
+
+    font-family: var(--font-bold), sans-serif;
+    padding: 0 16px;
+
+    border-image: var(--img-board-background);
+
+    cursor: var(--cursor-pointer);
+    user-select: none;
+}
+
+.click-button:hover
+{
+    opacity: 0.8;
+}
+
+.click-button:active
+{
+    opacity: 0.5;
+}

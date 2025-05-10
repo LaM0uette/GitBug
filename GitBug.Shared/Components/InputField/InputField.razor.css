@@ -40,7 +40,7 @@
     outline: none;
 
     caret-color: var(--color-text-primary);
-    cursor: text;
+    cursor: var(--cursor-text);
     
     &::placeholder {
         color: var(--color-text-placeholder);
@@ -78,7 +78,7 @@
     background: transparent;
     border: none;
 
-    cursor: pointer;
+    cursor: var(--cursor-pointer);
     outline: none;
     
     &:hover {

@@ -31,8 +31,11 @@ public class HomeBase : ComponentBase
     {
         SelectedYear = year;
         StateHasChanged();
-        
-        Console.WriteLine($"Selected year: {year}");
+    }
+
+    protected void OnStartGameButtonClicked()
+    {
+        Console.WriteLine($"Selected year: {SelectedYear}");
     }
     
     

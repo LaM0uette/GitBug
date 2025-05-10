@@ -1,0 +1,17 @@
+﻿@namespace GitBug.Shared
+@inherits ClickButtonBase
+
+<style>
+    
+    .click-button
+    {
+        width: @Width;
+        height: @Height;
+        font-size: @FontSize;
+    }
+    
+</style>
+
+<button class="click-button" @onpointerup="OnPointerUp">
+    @ChildContent
+</button>

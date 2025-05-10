@@ -41,7 +41,7 @@
     outline: none;
 
     caret-color: var(--color-text-primary);
-    cursor: pointer;
+    cursor: var(--cursor-pointer);
 
     appearance: none;
     -webkit-appearance: none;
