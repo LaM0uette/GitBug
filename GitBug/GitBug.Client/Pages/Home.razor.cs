@@ -1,6 +1,7 @@
 ﻿using System.Text.Json;
 using GitBug.Shared;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace GitBug.Client;
 
@@ -10,11 +11,44 @@ public class HomeBase : ComponentBase
 
     [Parameter] public string Value { get; set; } = string.Empty;
     
-    [Inject] private HttpClient _httpClient { get; set; } = null!;
+    protected List<int>? AvailableYears;
+    protected int SelectedYear;
     
-    protected override async Task OnInitializedAsync()
+    [Inject] private HttpClient _httpClient { get; set; } = null!;
+
+    #endregion
+
+    #region Methods
+    
+    protected void OnInputChanged(ChangeEventArgs eventArgs)
     {
-        var username = "LaM0uette";
+        if (eventArgs.Value is string inputString)
+            Value = inputString;
+    }
+    
+    protected async Task HandleBlur()
+    {
+        if (string.IsNullOrWhiteSpace(Value))
+            return;
+
+        await FetchData();
+    }
+    
+    protected async Task HandleKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            if (string.IsNullOrWhiteSpace(Value))
+                return;
+
+            await FetchData();
+        }
+    }
+
+    
+    private async Task FetchData()
+    {
+        string username = Value;
         var url = $"https://github-contributions-api.jogruber.de/v4/{username}";
         var request = new HttpRequestMessage(HttpMethod.Get, url);
         request.Headers.UserAgent.ParseAdd("GitBug");
@@ -23,25 +57,17 @@ public class HomeBase : ComponentBase
         if (response.IsSuccessStatusCode)
         {
             string content = await response.Content.ReadAsStringAsync();
-            var data = JsonSerializer.Deserialize<ContributionsDTO>(content);
+            var contributions = JsonSerializer.Deserialize<ContributionsDTO>(content);
             
-            foreach (KeyValuePair<int, int> entry in data.TotalByYears)
-                Console.WriteLine($"Year {entry.Key}: {entry.Value}");
-        
-            Console.WriteLine($"\nFirst contribution - Date: {data.Contributions[0].Date:M/d/yyyy}, Count: {data.Contributions[0].Count}");
-            Console.WriteLine($"\nFirst contribution - Date: {data.Contributions[1].Date:M/d/yyyy}, Count: {data.Contributions[1].Count}");
-            Console.WriteLine($"\nFirst contribution - Date: {data.Contributions[2].Date:M/d/yyyy}, Count: {data.Contributions[2].Count}");
+            List<int> years = contributions.TotalByYears.Keys.ToList();
+            years.Sort();
+            AvailableYears = years;
         }
-    }
-
-    #endregion
-
-    #region Methods
-
-    protected void OnInputChanged(ChangeEventArgs eventArgs)
-    {
-        if (eventArgs.Value is string inputString)
-            Value = inputString;
+        else
+        {
+            AvailableYears = [];
+            Console.WriteLine($"Error: {response.StatusCode}");
+        }
     }
 
     #endregion

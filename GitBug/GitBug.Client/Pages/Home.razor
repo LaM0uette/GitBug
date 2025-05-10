@@ -14,10 +14,18 @@
            value="@Value" 
            placeholder="ex: LaM0uette" 
            spellcheck="false"
-           @oninput="OnInputChanged"/>
+           @oninput="OnInputChanged"
+           @onblur="HandleBlur"
+           @onkeydown="HandleKeyDown"/>
     
-    @if (!string.IsNullOrEmpty(Value))
+    @if (!string.IsNullOrEmpty(Value) && AvailableYears is not null && AvailableYears.Count > 0)
     {
+        <select @bind="SelectedYear">
+            @foreach (int year in AvailableYears)
+            {
+                <option value="@year">@year</option>
+            }
+        </select>
     }
     
 </div>
