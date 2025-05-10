@@ -27,6 +27,14 @@ public class HomeBase : ComponentBase
         await FetchData(username);
     }
     
+    protected void OnYearChanged(int year)
+    {
+        SelectedYear = year;
+        StateHasChanged();
+        
+        Console.WriteLine($"Selected year: {year}");
+    }
+    
     
     private async Task FetchData(string username)
     {

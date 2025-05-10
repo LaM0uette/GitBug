@@ -24,17 +24,16 @@
             <InputField Label="Enter a Github username:"
                         Placeholder="ex: LaM0uette"
                         ValueChanged="OnValueChanged"
-                        Validated="OnValidated"/>
+                        Validated="OnValidated"
+                        Width="100%"/>
 
-            @if (AvailableYears is not null && AvailableYears.Count > 0)
-            {
-                <select @bind="SelectedYear">
-                    @foreach (int year in AvailableYears)
-                    {
-                        <option value="@year">@year</option>
-                    }
-                </select>
-            }
+            <VerticalSpacer Value="20"/>
+                
+            <DropDown Label="Select a year:"
+                      Options="AvailableYears"
+                      Selected="@SelectedYear"
+                      SelectedChanged="OnYearChanged"
+                      Width="100%"/>
 
         </div>
         

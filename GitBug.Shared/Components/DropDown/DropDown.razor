@@ -1,0 +1,52 @@
+﻿@namespace GitBug.Shared
+@inherits DropDownBase
+
+<style>
+    
+    .dropdown-container {
+        width: @Width;
+    }
+
+    .dropdown-label {
+        width: @Width;
+    }
+
+    .dropdown-select {
+        width: @Width;
+        height: @Height;
+    }
+
+    .dropdown-field
+    {
+        width: @Width;
+        height: @Height;
+    }
+    
+</style>
+
+<div class="dropdown-container">
+    
+    <label for="dropdown" class="dropdown-label">@Label</label>
+
+    <div class="dropdown-select">
+        
+        <select id="dropdown"
+                class="dropdown-field"
+                value="@Selected"
+                @onchange="OnSelectedChanged">
+            
+            @if (Options != null)
+            {
+                @foreach (int year in Options)
+                {
+                    <option value="@year">@year</option>
+                }
+            }
+            
+        </select>
+        
+        <img src="/_content/GitBug.Shared/img/icons/arrow-down.svg" class="dropdown-arrow" alt="Dropdown arrow" />
+        
+    </div>
+    
+</div>
