@@ -1,0 +1,33 @@
+﻿@namespace GitBug.Shared
+@inherits InputFieldBase
+
+<style>
+
+    .input-text
+    {
+        width: @Width;
+        height: @Height;
+    }
+
+</style>
+
+<div class="text-input-container">
+    
+    <label for="input-text" class="input-text__label">@Label</label>
+    <input id="input-text"
+           class="input-text"
+           value="@Value"
+           placeholder="@Placeholder"
+           spellcheck="false"
+           @oninput="OnInputChanged"
+           @onblur="HandleBlur"
+           @onkeydown="HandleKeyDown"/>
+    
+    @if (!string.IsNullOrEmpty(Value))
+    {
+        <button type="button" class="clear-button" @onclick="ClearInput">
+            <img src="/_content/StickyRetro.Shared/img/icons/clear-icon.svg" class="clear-button__icon" alt="Clear input"/>
+        </button>
+    }
+
+</div>

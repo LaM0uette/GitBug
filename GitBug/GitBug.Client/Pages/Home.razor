@@ -1,31 +1,44 @@
 ﻿@page "/"
+@namespace GitBug.Client
 @inherits HomeBase
 
 <PageTitle>GitBug</PageTitle>
 
 <div class="page">
     
-    <h1 class="title">GitBug</h1>
-    <p class="description">A strategic game that transforms GitHub's contribution grid into a bug-hunting challenge - a reverse-minesweeper where more commits mean more bugs!</p>
+    <div class="card">
+        
+        <h1 class="title">GitBug</h1>
+        
+        <VerticalSpacer Value="20"/>
+        
+        <p class="description">
+            A strategic reverse-minesweeper where more commits mean more bugs.
+            Analyze activity patterns, deploy your tests wisely, and uncover every hidden flaw before you run out of resources.
+        </p>
+        
+        <VerticalSpacer Value="50"/>
+        
+        <div class="form">
+            
+            <InputField Label="Enter a Github username:"
+                        Placeholder="ex: LaM0uette"
+                        ValueChanged="OnValueChanged"
+                        Validated="OnValidated"/>
 
-    <label for="input-text" class="input-text__label">Enter a Github username</label>
-    <input id="input-text" 
-           class="input-text" 
-           value="@Value" 
-           placeholder="ex: LaM0uette" 
-           spellcheck="false"
-           @oninput="OnInputChanged"
-           @onblur="HandleBlur"
-           @onkeydown="HandleKeyDown"/>
-    
-    @if (!string.IsNullOrEmpty(Value) && AvailableYears is not null && AvailableYears.Count > 0)
-    {
-        <select @bind="SelectedYear">
-            @foreach (int year in AvailableYears)
+            @if (!string.IsNullOrEmpty(Value) && AvailableYears is not null && AvailableYears.Count > 0)
             {
-                <option value="@year">@year</option>
+                <select @bind="SelectedYear">
+                    @foreach (int year in AvailableYears)
+                    {
+                        <option value="@year">@year</option>
+                    }
+                </select>
             }
-        </select>
-    }
+
+        </div>
+        
+    </div>
     
+
 </div>

@@ -10,88 +10,93 @@
     /* Color */
     
     /* Light */
-    --light-primary: #f8f9ff;
-    --light-secondary: #ffffff;
-    --light-tertiary: #e1e5f2;
-    --light-text-primary: #334a7a;
-    --light-text-secondary: #6c89c8;
-    --light-text-tertiary: #92a6d6;
+    --color-light-primary: #f8f9ff;
+    --color-light-secondary: #ffffff;
+    --color-light-tertiary: #e1e5f2;
+    --color-light-text-primary: #334a7a;
+    --color-light-text-secondary: #6c89c8;
+    --color-light-text-tertiary: #92a6d6;
+    --color-light-text-alt: #282828;
+    --color-light-text-placeholder: #a0a0a0;
 
-    --light-cell-commit-0: #f0f0fa;
-    --light-cell-commit-1: #e0e5ff;
-    --light-cell-commit-2: #c9d4ff;
-    --light-cell-commit-3: #b1c3ff;
-    --light-cell-commit-4: #99b3ff;
+    --color-light-cell-commit-0: #f0f0fa;
+    --color-light-cell-commit-1: #e0e5ff;
+    --color-light-cell-commit-2: #c9d4ff;
+    --color-light-cell-commit-3: #b1c3ff;
+    --color-light-cell-commit-4: #99b3ff;
 
-    --light-cell-tested: #bbdeff;
-    --light-cell-safe-zone: #c7f0d2;
-    --light-cell-marked-safe: #fff0c1;
-    --light-cell-bug: #ffcbd1;
-    --light-bug-icon: #f7768e;
+    --color-light-cell-tested: #bbdeff;
+    --color-light-cell-safe-zone: #c7f0d2;
+    --color-light-cell-marked-safe: #fff0c1;
+    --color-light-cell-bug: #ffcbd1;
+    --color-light-bug-icon: #f7768e;
 
-    --light-success: #9ece6a;
-    --light-warning: #e0af68;
-    --light-error: #f7768e;
-    --light-info: #7aa2f7;
+    --color-light-success: #9ece6a;
+    --color-light-warning: #e0af68;
+    --color-light-error: #f7768e;
+    --color-light-info: #7aa2f7;
 
     /* Dark Theme - Vibrant Pastel Dark */
-    --dark-primary: #1a1b26;
-    --dark-secondary: #24283b;
-    --dark-tertiary: #3b4261;
-    --dark-text-primary: #c0caf5;
-    --dark-text-secondary: #9aa5ce;
-    --dark-text-tertiary: #565f89;
+    --color-dark-primary: #1a1b26;
+    --color-dark-secondary: #24283b;
+    --color-dark-tertiary: #3b4261;
+    --color-dark-text-primary: #c0caf5;
+    --color-dark-text-secondary: #9aa5ce;
+    --color-dark-text-tertiary: #565f89;
+    --color-dark-text-alt: #e6e6e6;
+    --color-dark-text-placeholder: #a0a0a0;
 
     /* Game Elements - Dark Theme */
-    --dark-cell-commit-0: #292e42;
-    --dark-cell-commit-1: #323957;
-    --dark-cell-commit-2: #3b446c;
-    --dark-cell-commit-3: #445082;
-    --dark-cell-commit-4: #4e5c98;
+    --color-dark-cell-commit-0: #292e42;
+    --color-dark-cell-commit-1: #323957;
+    --color-dark-cell-commit-2: #3b446c;
+    --color-dark-cell-commit-3: #445082;
+    --color-dark-cell-commit-4: #4e5c98;
 
-    --dark-cell-tested: #2e4e7a;
-    --dark-cell-safe-zone: #355e43;
-    --dark-cell-marked-safe: #5c5342;
-    --dark-cell-bug: #5c3c42;
-    --dark-bug-icon: #f7768e;
+    --color-dark-cell-tested: #2e4e7a;
+    --color-dark-cell-safe-zone: #355e43;
+    --color-dark-cell-marked-safe: #5c5342;
+    --color-dark-cell-bug: #5c3c42;
+    --color-dark-bug-icon: #f7768e;
 
-    --dark-success: #9ece6a;
-    --dark-warning: #e0af68;
-    --dark-error: #f7768e;
-    --dark-info: #7dcfff;
+    --color-dark-success: #9ece6a;
+    --color-dark-warning: #e0af68;
+    --color-dark-error: #f7768e;
+    --color-dark-info: #7dcfff;
 
     
     /* Default */
-    --primary: var(--light-primary);
-    --secondary: var(--light-secondary);
-    --tertiary: var(--light-tertiary);
-    --text-primary: var(--light-text-primary);
-    --text-secondary: var(--light-text-secondary);
-    --text-tertiary: var(--light-text-tertiary);
+    --color-primary: var(--color-light-primary);
+    --color-secondary: var(--color-light-secondary);
+    --color-tertiary: var(--color-light-tertiary);
+    --color-text-primary: var(--color-light-text-primary);
+    --color-text-secondary: var(--color-light-text-secondary);
+    --color-text-tertiary: var(--color-light-text-tertiary);
+    --color-text-alt: var(--color-light-text-alt);
+    --color-text-placeholder: var(--color-light-text-placeholder);
 
-    --cell-commit-0: var(--light-cell-commit-0);
-    --cell-commit-1: var(--light-cell-commit-1);
-    --cell-commit-2: var(--light-cell-commit-2);
-    --cell-commit-3: var(--light-cell-commit-3);
-    --cell-commit-4: var(--light-cell-commit-4);
+    --color-cell-commit-0: var(--color-light-cell-commit-0);
+    --color-cell-commit-1: var(--color-light-cell-commit-1);
+    --color-cell-commit-2: var(--color-light-cell-commit-2);
+    --color-cell-commit-3: var(--color-light-cell-commit-3);
+    --color-cell-commit-4: var(--color-light-cell-commit-4);
 
-    --cell-tested: var(--light-cell-tested);
-    --cell-safe-zone: var(--light-cell-safe-zone);
-    --cell-marked-safe: var(--light-cell-marked-safe);
-    --cell-bug: var(--light-cell-bug);
-    --bug-icon: var(--light-bug-icon);
+    --color-cell-tested: var(--color-light-cell-tested);
+    --color-cell-safe-zone: var(--color-light-cell-safe-zone);
+    --color-cell-marked-safe: var(--color-light-cell-marked-safe);
+    --color-cell-bug: var(--color-light-cell-bug);
+    --color-bug-icon: var(--color-light-bug-icon);
 
-    --success: var(--light-success);
-    --warning: var(--light-warning);
-    --error: var(--light-error);
-    --info: var(--light-info);
+    --color-success: var(--color-light-success);
+    --color-warning: var(--color-light-warning);
+    --color-error: var(--color-light-error);
+    --color-info: var(--color-light-info);
 }
 
 body {
-    background-color: var(--primary);
-    color: var(--text-primary);
+    background-color: var(--color-primary);
+    color: var(--color-text-primary);
     font-family: var(--font), Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
-    line-height: 1.5;
 }
 

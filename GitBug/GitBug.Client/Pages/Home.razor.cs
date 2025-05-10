@@ -1,7 +1,6 @@
 ﻿using System.Text.Json;
 using GitBug.Shared;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 
 namespace GitBug.Client;
 
@@ -20,35 +19,19 @@ public class HomeBase : ComponentBase
 
     #region Methods
     
-    protected void OnInputChanged(ChangeEventArgs eventArgs)
+    protected async Task OnValueChanged(string username)
     {
-        if (eventArgs.Value is string inputString)
-            Value = inputString;
+        await FetchData(username);
     }
     
-    protected async Task HandleBlur()
+    protected async Task OnValidated(string username)
     {
-        if (string.IsNullOrWhiteSpace(Value))
-            return;
-
-        await FetchData();
+        await FetchData(username);
     }
     
-    protected async Task HandleKeyDown(KeyboardEventArgs e)
-    {
-        if (e.Key == "Enter")
-        {
-            if (string.IsNullOrWhiteSpace(Value))
-                return;
-
-            await FetchData();
-        }
-    }
-
     
-    private async Task FetchData()
+    private async Task FetchData(string username)
     {
-        string username = Value;
         var url = $"https://github-contributions-api.jogruber.de/v4/{username}";
         var request = new HttpRequestMessage(HttpMethod.Get, url);
         request.Headers.UserAgent.ParseAdd("GitBug");
