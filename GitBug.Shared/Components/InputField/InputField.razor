@@ -2,6 +2,14 @@
 @inherits InputFieldBase
 
 <style>
+    
+    .input-text-container {
+        width: @Width;
+    }
+    
+    .input-field__label {
+        width: @Width;
+    }
 
     .input-text
     {
@@ -11,23 +19,28 @@
 
 </style>
 
-<div class="text-input-container">
+<div class="input-text-container">
     
-    <label for="input-text" class="input-text__label">@Label</label>
-    <input id="input-text"
-           class="input-text"
-           value="@Value"
-           placeholder="@Placeholder"
-           spellcheck="false"
-           @oninput="OnInputChanged"
-           @onblur="HandleBlur"
-           @onkeydown="HandleKeyDown"/>
+    <label for="input-field" class="input-field__label">@Label</label>
     
-    @if (!string.IsNullOrEmpty(Value))
-    {
-        <button type="button" class="clear-button" @onclick="ClearInput">
-            <img src="/_content/StickyRetro.Shared/img/icons/clear-icon.svg" class="clear-button__icon" alt="Clear input"/>
-        </button>
-    }
+    <div class="input-text">
+        
+        <input id="input-field"
+               class="input-field"
+               value="@Value"
+               placeholder="@Placeholder"
+               spellcheck="false"
+               @oninput="OnInputChanged"
+               @onblur="HandleBlur"
+               @onkeydown="HandleKeyDown"/>
+    
+        @if (!string.IsNullOrEmpty(Value))
+        {
+            <button type="button" class="clear-button" @onclick="ClearInput">
+                <img src="/_content/GitBug.Shared/img/icons/clear-icon.svg" class="clear-button__icon" alt="Clear input"/>
+            </button>
+        }
 
+    </div>
+    
 </div>
