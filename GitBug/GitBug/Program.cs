@@ -1,4 +1,5 @@
 using GitBug.Components;
+using GitBug.Shared;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,9 @@ builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
 
 builder.Services.AddHttpClient();
+
+// Dependency Injections
+builder.Services.AddSingleton<UIStore>();
 
 WebApplication app = builder.Build();
 

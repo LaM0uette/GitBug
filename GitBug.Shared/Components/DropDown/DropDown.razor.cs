@@ -10,7 +10,7 @@ public class DropDownBase : ComponentBase
     
     [Parameter] public string Label { get; set; } = string.Empty;
     
-    [Parameter] public List<int>? Options { get; set; }
+    [Parameter] public IReadOnlyList<int>? Options { get; set; }
     [Parameter] public int Selected { get; set; }
     [Parameter] public string Width { get; set; } = "auto";
     [Parameter] public string Height { get; set; } = "33px";

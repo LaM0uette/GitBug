@@ -10,11 +10,12 @@ public class HomeBase : ComponentBase
     
     [Parameter] public string UserName { get; set; } = string.Empty;
 
-    protected List<int>? AvailableYears;
+    protected IReadOnlyList<int>? AvailableYears;
     protected int SelectedYear;
     
     [Inject] private HttpClient _httpClient { get; set; } = null!;
-
+    [Inject] private UIStore _uiStore { get; set; } = null!;
+    
     protected override async Task OnInitializedAsync()
     {
         if (string.IsNullOrWhiteSpace(UserName))
@@ -61,11 +62,12 @@ public class HomeBase : ComponentBase
         if (response.IsSuccessStatusCode)
         {
             string content = await response.Content.ReadAsStringAsync();
-            var contributions = JsonSerializer.Deserialize<ContributionsDTO>(content);
+            var contributionsData = JsonSerializer.Deserialize<ContributionsDTO>(content);
             
-            List<int> years = contributions.TotalByYears.Keys.ToList();
-            years.Sort();
-            AvailableYears = years;
+            _uiStore.Dispatch(new SetContributionsAction(UserName, contributionsData.TotalByYears, contributionsData.Contributions));
+            var contributionsState = _uiStore.GetState<ContributionsState>();
+            
+            AvailableYears = contributionsState.AvailableYears();
         }
         else
         {
