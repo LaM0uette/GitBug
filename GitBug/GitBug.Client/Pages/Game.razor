@@ -4,24 +4,35 @@
 
 <div class="page">
     
+    <div class="contribution-header">
+        
+        <div class="bug-counter">
+            
+            <img src="/_content/GitBug.Shared/img/icons/bug.svg" class="bug-counter__icon" alt="Bug Counter"/>
+            <p class="bug-counter__count">@BugResolved/@TotalBugCount</p>
+            
+        </div>
+        
+    </div>
+
     <div class="contribution-grid">
-    
+
         @if (Grid is not null)
         {
             for (var week = 0; week < Grid.GetLength(0); week++)
             {
                 <div class="week-column">
-            
+
                     @for (var day = 0; day < 7; day++)
                     {
-                        CellData data = Grid[week, day];
+                        ContributionCell data = Grid[week, day];
                         <Cell Data="data"/>
                     }
-            
+
                 </div>
             }
         }
-    
+
     </div>
-    
+
 </div>

@@ -11,7 +11,9 @@ public class GameBase : ComponentBase
     [Parameter] public string UserName { get; set; } = string.Empty;
     [Parameter] public int SelectedYear { get; set; }
     
-    protected CellData[,]? Grid;
+    protected ContributionCell[,]? Grid;
+    protected int TotalBugCount;
+    protected int BugResolved;
     
     [Inject] private HttpClient _httpClient { get; set; } = null!;
     [Inject] private UIStore _uiStore { get; set; } = null!;
@@ -45,7 +47,7 @@ public class GameBase : ComponentBase
         int totalDays = (endDate - startSunday).Days + 1;
         var totalWeeks = (int)Math.Ceiling(totalDays / 7f);
 
-        Grid = new CellData[totalWeeks, 7];
+        Grid = new ContributionCell[totalWeeks, 7];
         Dictionary<DateTime, ContributionDTO> contributions = filteredContributions.ToDictionary(c => c.Date.Date);
 
         for (var week = 0; week < totalWeeks; week++)
@@ -54,9 +56,11 @@ public class GameBase : ComponentBase
             {
                 DateTime date = startSunday.AddDays(week * 7 + day);
                 contributions.TryGetValue(date, out ContributionDTO contribution);
-                Grid[week, day] = new CellData(date, contribution.Count, contribution.Level);
+                Grid[week, day] = new ContributionCell(date, contribution.Count, contribution.Level);
             }
         }
+
+        TotalBugCount = Grid.Cast<ContributionCell>().Count(cell => cell.IsBug);
     }
     
     private async Task FetchData()
