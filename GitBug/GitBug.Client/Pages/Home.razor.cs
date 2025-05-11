@@ -14,6 +14,7 @@ public class HomeBase : ComponentBase
     protected int SelectedYear;
     
     [Inject] private HttpClient _httpClient { get; set; } = null!;
+    [Inject] private NavigationManager _navigationManager { get; set; } = null!;
     [Inject] private UIStore _uiStore { get; set; } = null!;
     
     protected override async Task OnInitializedAsync()
@@ -48,7 +49,7 @@ public class HomeBase : ComponentBase
 
     protected void OnStartGameButtonClicked()
     {
-        Console.WriteLine($"Selected year: {SelectedYear}");
+        _navigationManager.NavigateTo($"/Game/{UserName}");
     }
     
     
