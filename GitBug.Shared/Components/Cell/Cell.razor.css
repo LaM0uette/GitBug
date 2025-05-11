@@ -1,8 +1,42 @@
-﻿.cell {
+﻿.cell-container {
+    position: relative;
+    
     width: 32px;
     height: 32px;
     
     border-radius: 2px;
+    
+    user-select: none;
+}
+
+.cell {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 2px;
+}
+
+.cell-clickable__commits {
+    width: 100%;
+    
+    position: absolute;
+    bottom: 2px;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.cell-clickable__icon {
+    width: 10px;
+    height: 10px;
+}
+
+.cell-clickable__count {
+    font-size: 0.8em;
+    font-family: var(--font-bold), sans-serif;
+    color: var(--color-text-alt);
 }
 
 .level-0 { background-color: var(--color-cell-commit-0); }

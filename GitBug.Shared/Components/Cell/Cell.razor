@@ -1,20 +1,37 @@
 ﻿@namespace GitBug.Shared
 @inherits CellBase
 
-<div class="cell" title="@Data.Date.ToString("yyyy-MM-dd") - @Data.Level">
+<div class="cell-container" title="@Data.Date.ToString("yyyy-MM-dd") - @Data.Level">
     
     @switch (State)
     {
         case CellState.Clickable:
-            <div class="cell level-@Data.Level"></div>
+            
+            <div class="cell cell-clickable level-@Data.Level">
+                
+                <div class="cell-clickable__commits">
+                    <img src="/_content/GitBug.Shared/img/icons/commits.svg" class="cell-clickable__icon" alt="Bug Counter"/>
+                    <p class="cell-clickable__count">@Data.Count</p>
+                </div>
+
+            </div>
+            
             break;
 
         case CellState.Flagged:
-            <div class="cell level-@Data.Level"></div>
+            
+            <div class="cell cell-flagged level-@Data.Level">
+                
+            </div>
+            
             break;
 
         case CellState.Revealed:
-            <div class="cell level-@Data.Level-reveal"></div>
+            
+            <div class="cell cell-revealed level-@Data.Level-reveal">
+                
+            </div>
+            
             break;
 
         default:
