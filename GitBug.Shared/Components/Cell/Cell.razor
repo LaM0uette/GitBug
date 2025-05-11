@@ -1,0 +1,24 @@
+﻿@namespace GitBug.Shared
+@inherits CellBase
+
+<div class="cell" title="@Data.Date.ToString("yyyy-MM-dd")">
+    
+    @switch (State)
+    {
+        case CellState.Clickable:
+            <div class="cell level-@Data.Level"></div>
+            break;
+
+        case CellState.Flagged:
+            <div class="cell level-@Data.Level"></div>
+            break;
+
+        case CellState.Revealed:
+            <div class="cell level-@Data.Level-reveal"></div>
+            break;
+
+        default:
+            throw new ArgumentOutOfRangeException();
+    }
+
+</div>

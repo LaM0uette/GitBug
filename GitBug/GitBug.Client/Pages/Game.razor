@@ -8,14 +8,14 @@
     
         @if (Grid is not null)
         {
-            @for (var week = 0; week < Grid.GetLength(0); week++)
+            for (var week = 0; week < Grid.GetLength(0); week++)
             {
                 <div class="week-column">
             
                     @for (var day = 0; day < 7; day++)
                     {
-                        Cell cell = Grid[week, day];
-                        <div class="cell level-@cell.Level" title="@cell.Date.ToString("yyyy-MM-dd")"></div>
+                        CellData data = Grid[week, day];
+                        <Cell Data="data"/>
                     }
             
                 </div>

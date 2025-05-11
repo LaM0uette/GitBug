@@ -1,0 +1,18 @@
+﻿.cell {
+    width: 32px;
+    height: 32px;
+    
+    border-radius: 2px;
+}
+
+.level-0 { background-color: var(--color-cell-commit-0); }
+.level-1 { background-color: var(--color-cell-commit-1); }
+.level-2 { background-color: var(--color-cell-commit-2); }
+.level-3 { background-color: var(--color-cell-commit-3); }
+.level-4 { background-color: var(--color-cell-commit-4); }
+
+.level-0-reveal { background-color: #ebedf0; }
+.level-1-reveal { background-color: #c6e48b; }
+.level-2-reveal { background-color: #7bc96f; }
+.level-3-reveal { background-color: #239a3b; }
+.level-4-reveal { background-color: #196127; }
