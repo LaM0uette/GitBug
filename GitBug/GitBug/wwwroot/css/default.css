@@ -32,10 +32,8 @@
     --color-light-cell-commit-4: #99b3ff;
 
     --color-light-cell-tested: #deede6;
-    --color-light-cell-safe-zone: #c7f0d2;
-    --color-light-cell-marked-safe: #fff0c1;
     --color-light-cell-bug: #d0432c;
-    --color-light-bug-icon: #f7768e;
+    --color-light-cell-resolved: #f1f1f1;
 
     --color-light-success: #9ece6a;
     --color-light-warning: #e0af68;
@@ -60,10 +58,8 @@
     --color-dark-cell-commit-4: #4e5c98;
 
     --color-dark-cell-tested: #2e4e7a;
-    --color-dark-cell-safe-zone: #355e43;
-    --color-dark-cell-marked-safe: #5c5342;
     --color-dark-cell-bug: #5c3c42;
-    --color-dark-bug-icon: #f7768e;
+    --color-dark-cell-resolved: #292e42;
 
     --color-dark-success: #9ece6a;
     --color-dark-warning: #e0af68;
@@ -88,10 +84,8 @@
     --color-cell-commit-4: var(--color-light-cell-commit-4);
 
     --color-cell-tested: var(--color-light-cell-tested);
-    --color-cell-safe-zone: var(--color-light-cell-safe-zone);
-    --color-cell-marked-safe: var(--color-light-cell-marked-safe);
     --color-cell-bug: var(--color-light-cell-bug);
-    --color-bug-icon: var(--color-light-bug-icon);
+    --color-cell-resolved: var(--color-light-cell-resolved);
 
     --color-success: var(--color-light-success);
     --color-warning: var(--color-light-warning);

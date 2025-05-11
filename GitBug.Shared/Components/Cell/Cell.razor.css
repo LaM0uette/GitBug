@@ -18,28 +18,26 @@
 
 
 .cell-clickable {
+    position: relative;
+    
     cursor: var(--cursor-pointer);
 }
 
-.cell-clickable__commits {
-    width: 100%;
-    
-    position: absolute;
-    bottom: 2px;
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
 .cell-clickable__icon {
-    width: 10px;
-    height: 10px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    
+    width: 12px;
+    height: 12px;
 }
 
 .cell-clickable__count {
-    font-size: 0.8em;
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    
+    font-size: 0.9em;
     font-family: var(--font-bold), sans-serif;
     color: var(--color-text-alt);
 }
@@ -53,7 +51,7 @@
     justify-content: center;
     align-items: center;
     
-    background-color: var(--color-cell-tested);
+    /*background-color: var(--color-cell-tested);*/
 }
 
 .cell-revealed__bug {
@@ -62,6 +60,18 @@
     align-items: center;
     
     background-color: var(--color-cell-bug);
+}
+
+.cell-revealed__resolved {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell-revealed__resolved-bug-count {
+    font-size: 1.2em;
+    font-family: var(--font-bold), sans-serif;
+    color: var(--color-text-alt);
 }
 
 .cell-revealed__icon {
