@@ -21,6 +21,20 @@ public class GameBase : ComponentBase
     private IReadOnlyDictionary<int, int>? _totalByYears;
     private IReadOnlyList<ContributionDTO>? _contributions;
     
+    
+    
+    private const double CommitWeightFactor = 1;
+    private readonly Dictionary<int, double> LevelWeights = new()
+    {
+        { 0, 0 },
+        { 1, 1 },
+        { 2, 2 },
+        { 3, 4 },
+        { 4, 6 },
+    };
+    
+    
+    
     protected override async Task OnInitializedAsync()
     {
         await FetchData();
@@ -63,12 +77,18 @@ public class GameBase : ComponentBase
         int width = Grid.GetLength(0);
         int height = Grid.GetLength(1);
 
+        Random rng = new();
         for (var x = 0; x < width; x++)
         {
             for (var y = 0; y < height; y++)
             {
                 ContributionCell cell = Grid[x, y];
-                if (cell.Level >= 3)
+
+                double levelWeight = LevelWeights.GetValueOrDefault(cell.Level, 0);
+                double commitWeight = cell.Count * CommitWeightFactor;
+                double probability = Math.Clamp((levelWeight + commitWeight) / 100.0, 0, 1);
+
+                if (rng.NextDouble() < probability)
                     cell.SetState(ContributionCellState.Bug);
             }
         }
