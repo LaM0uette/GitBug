@@ -7,11 +7,21 @@ namespace GitBug.Client;
 public class HomeBase : ComponentBase
 {
     #region Statements
+    
+    [Parameter] public string UserName { get; set; } = string.Empty;
 
     protected List<int>? AvailableYears;
     protected int SelectedYear;
     
     [Inject] private HttpClient _httpClient { get; set; } = null!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (string.IsNullOrWhiteSpace(UserName))
+            return;
+
+        await FetchData();
+    }
 
     #endregion
 
@@ -19,12 +29,14 @@ public class HomeBase : ComponentBase
     
     protected async Task OnValueChanged(string username)
     {
-        await FetchData(username);
+        UserName = username;
+        await FetchData();
     }
     
     protected async Task OnValidated(string username)
     {
-        await FetchData(username);
+        UserName = username;
+        await FetchData();
     }
     
     protected void OnYearChanged(int year)
@@ -39,9 +51,9 @@ public class HomeBase : ComponentBase
     }
     
     
-    private async Task FetchData(string username)
+    private async Task FetchData()
     {
-        var url = $"https://github-contributions-api.jogruber.de/v4/{username}";
+        var url = $"https://github-contributions-api.jogruber.de/v4/{UserName}";
         var request = new HttpRequestMessage(HttpMethod.Get, url);
         request.Headers.UserAgent.ParseAdd("GitBug");
 
