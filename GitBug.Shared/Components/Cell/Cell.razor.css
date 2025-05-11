@@ -16,6 +16,11 @@
     border-radius: 2px;
 }
 
+
+.cell-clickable {
+    cursor: var(--cursor-pointer);
+}
+
 .cell-clickable__commits {
     width: 100%;
     
@@ -38,6 +43,32 @@
     font-family: var(--font-bold), sans-serif;
     color: var(--color-text-alt);
 }
+
+
+.cell-revealed {
+}
+
+.cell-revealed__tested {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: var(--color-cell-tested);
+}
+
+.cell-revealed__bug {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: var(--color-cell-bug);
+}
+
+.cell-revealed__icon {
+    width: 22px;
+    height: 22px;
+}
+
 
 .level-0 { background-color: var(--color-cell-commit-0); }
 .level-1 { background-color: var(--color-cell-commit-1); }

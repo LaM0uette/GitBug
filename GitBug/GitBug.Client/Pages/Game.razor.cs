@@ -59,8 +59,57 @@ public class GameBase : ComponentBase
                 Grid[week, day] = new ContributionCell(date, contribution.Count, contribution.Level);
             }
         }
+        
+        int width = Grid.GetLength(0);
+        int height = Grid.GetLength(1);
 
-        TotalBugCount = Grid.Cast<ContributionCell>().Count(cell => cell.IsBug);
+        for (var x = 0; x < width; x++)
+        {
+            for (var y = 0; y < height; y++)
+            {
+                ContributionCell cell = Grid[x, y];
+                if (cell.Level >= 3)
+                    cell.SetState(ContributionCellState.Bug);
+            }
+        }
+
+        for (var x = 0; x < width; x++)
+        {
+            for (var y = 0; y < height; y++)
+            {
+                ContributionCell cell = Grid[x, y];
+
+                if (cell.State == ContributionCellState.Bug)
+                    continue;
+
+                var bugCount = 0;
+
+                for (int dx = -1; dx <= 1; dx++)
+                {
+                    for (int dy = -1; dy <= 1; dy++)
+                    {
+                        if (dx == 0 && dy == 0)
+                            continue;
+
+                        int nx = x + dx;
+                        int ny = y + dy;
+
+                        if (nx < 0 || nx >= width || ny < 0 || ny >= height) 
+                            continue;
+                        
+                        if (Grid[nx, ny].State == ContributionCellState.Bug)
+                            bugCount++;
+                    }
+                }
+
+                if (bugCount == 0)
+                    cell.SetState(ContributionCellState.Tested);
+                else
+                    cell.SetState(ContributionCellState.Resolved, bugCount);
+            }
+        }
+
+        TotalBugCount = Grid.Cast<ContributionCell>().Count(cell => cell.State == ContributionCellState.Bug);
     }
     
     private async Task FetchData()

@@ -7,7 +7,8 @@
     {
         case CellState.Clickable:
             
-            <div class="cell cell-clickable level-@Data.Level">
+            <div class="cell cell-clickable level-@Data.Level"
+                 @onpointerup="OnPointerUp">
                 
                 <div class="cell-clickable__commits">
                     <img src="/_content/GitBug.Shared/img/icons/commits.svg" class="cell-clickable__icon" alt="Bug Counter"/>
@@ -28,7 +29,45 @@
 
         case CellState.Revealed:
             
-            <div class="cell cell-revealed level-@Data.Level-reveal">
+            <div class="cell cell-revealed">  @*level-@Data.Level-reveal*@
+                
+                @switch (Data.State)
+                {
+                    case ContributionCellState.Empty:
+            
+                        <div class="cell cell-revealed__empty">
+                
+                        </div>
+            
+                        break;
+
+                    case ContributionCellState.Tested:
+            
+                        <div class="cell cell-revealed__tested">
+                            <img src="/_content/GitBug.Shared/img/icons/tested.svg" class="cell-revealed__icon" alt="Bug Counter"/>
+                        </div>
+            
+                        break;
+
+                    case ContributionCellState.Bug:
+            
+                        <div class="cell cell-revealed__bug">
+                            <img src="/_content/GitBug.Shared/img/icons/bug-white.svg" class="cell-revealed__icon" alt="Bug Counter"/>
+                        </div>
+            
+                        break;
+                        
+                    case ContributionCellState.Resolved:
+            
+                        <div class="cell cell-revealed__resolved">
+                
+                        </div>
+            
+                        break;
+
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
                 
             </div>
             
