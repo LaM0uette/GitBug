@@ -1,3 +1,20 @@
-﻿@page "/Game/{UserName}"
+﻿@page "/Game/{UserName}/{SelectedYear:int}"
 @namespace GitBug.Client
 @inherits GameBase
+
+<div class="contribution-grid">
+    
+    @for (var week = 0; week < Grid.GetLength(0); week++)
+    {
+        <div class="week-column">
+            
+            @for (var day = 0; day < 7; day++)
+            {
+                Cell cell = Grid[week, day];
+                <div class="cell level-@cell.Level" title="@cell.Date.ToString("yyyy-MM-dd")"></div>
+            }
+            
+        </div>
+    }
+    
+</div>

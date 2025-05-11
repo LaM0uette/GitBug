@@ -49,12 +49,15 @@ public class HomeBase : ComponentBase
 
     protected void OnStartGameButtonClicked()
     {
-        _navigationManager.NavigateTo($"/Game/{UserName}");
+        _navigationManager.NavigateTo($"/Game/{UserName}/{SelectedYear}");
     }
     
     
     private async Task FetchData()
     {
+        if (string.IsNullOrWhiteSpace(UserName))
+            return;
+        
         var url = $"https://github-contributions-api.jogruber.de/v4/{UserName}";
         var request = new HttpRequestMessage(HttpMethod.Get, url);
         request.Headers.UserAgent.ParseAdd("GitBug");
@@ -65,7 +68,7 @@ public class HomeBase : ComponentBase
             string content = await response.Content.ReadAsStringAsync();
             var contributionsData = JsonSerializer.Deserialize<ContributionsDTO>(content);
             
-            _uiStore.Dispatch(new SetContributionsAction(UserName, contributionsData.TotalByYears, contributionsData.Contributions));
+            _uiStore.Dispatch(new SetContributionsAction(UserName, SelectedYear, contributionsData.TotalByYears, contributionsData.Contributions));
             var contributionsState = _uiStore.GetState<ContributionsState>();
             
             AvailableYears = contributionsState.AvailableYears();

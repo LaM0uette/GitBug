@@ -6,6 +6,6 @@ public class UIStore : Store
 {
     public UIStore()
     {
-        States.Add(new ContributionsState(string.Empty, new Dictionary<int, int>(), new List<ContributionDTO>()));
+        States.Add(new ContributionsState(string.Empty, 0, new Dictionary<int, int>(), new List<ContributionDTO>()));
     }
 }
