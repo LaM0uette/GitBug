@@ -2,19 +2,26 @@
 @namespace GitBug.Client
 @inherits GameBase
 
-<div class="contribution-grid">
+<div class="page">
     
-    @for (var week = 0; week < Grid.GetLength(0); week++)
-    {
-        <div class="week-column">
-            
-            @for (var day = 0; day < 7; day++)
+    <div class="contribution-grid">
+    
+        @if (Grid is not null)
+        {
+            @for (var week = 0; week < Grid.GetLength(0); week++)
             {
-                Cell cell = Grid[week, day];
-                <div class="cell level-@cell.Level" title="@cell.Date.ToString("yyyy-MM-dd")"></div>
-            }
+                <div class="week-column">
             
-        </div>
-    }
+                    @for (var day = 0; day < 7; day++)
+                    {
+                        Cell cell = Grid[week, day];
+                        <div class="cell level-@cell.Level" title="@cell.Date.ToString("yyyy-MM-dd")"></div>
+                    }
+            
+                </div>
+            }
+        }
+    
+    </div>
     
 </div>

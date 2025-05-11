@@ -1,24 +1,39 @@
-﻿.contribution-grid {
+﻿.page {
+    width: 100vw;
+    height: 100vh;
+
     display: flex;
     flex-direction: row;
-    gap: 2px;
+    justify-content: center;
+    align-items: start;
+}
+
+.contribution-grid {
+    position: relative;
+    top: 10%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
 }
 
 .week-column {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
 }
 
 .contribution-row {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
 }
 
 .cell {
-    width: 12px;
-    height: 12px;
+    width: 32px;
+    height: 32px;
     border-radius: 2px;
 }
 
