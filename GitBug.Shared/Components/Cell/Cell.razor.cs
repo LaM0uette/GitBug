@@ -7,6 +7,8 @@ public class CellBase : ComponentBase
 {
     #region Statements
 
+    [Parameter] public EventCallback<CellBase> Revealed { get; set; }
+    
     [Parameter, EditorRequired] public required ContributionCell Data { get; set; }
     
     internal CellState State { get; private set; } = CellState.Clickable;
@@ -21,6 +23,7 @@ public class CellBase : ComponentBase
             return;
         
         State = CellState.Revealed;
+        Revealed.InvokeAsync(this);
     }
 
     #endregion

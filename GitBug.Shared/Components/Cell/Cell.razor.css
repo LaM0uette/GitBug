@@ -71,7 +71,6 @@
 .cell-revealed__resolved-bug-count {
     font-size: 1.2em;
     font-family: var(--font-bold), sans-serif;
-    color: var(--color-text-alt);
 }
 
 .cell-revealed__icon {
@@ -91,3 +90,9 @@
 .level-2-reveal { background-color: #7bc96f; }
 .level-3-reveal { background-color: #239a3b; }
 .level-4-reveal { background-color: #196127; }
+
+.level-0-resolved-bug-count { color: var(--color-text-alt); }
+.level-1-resolved-bug-count { color: var(--color-text-alt); }
+.level-2-resolved-bug-count { color: var(--color-text-alt); }
+.level-3-resolved-bug-count { color: var(--color-primary); }
+.level-4-resolved-bug-count { color: var(--color-primary); }

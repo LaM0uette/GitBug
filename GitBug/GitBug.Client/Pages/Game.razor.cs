@@ -45,6 +45,12 @@ public class GameBase : ComponentBase
 
     #region Methods
 
+    protected void OnCellRevealed(CellBase cell)
+    {
+        if (cell.Data.State == ContributionCellState.Bug)
+            BugResolved++;
+    }
+
     private void CreateNewGame()
     {
         if (_totalByYears == null || _contributions == null)

@@ -26,7 +26,7 @@
                     @for (var day = 0; day < 7; day++)
                     {
                         ContributionCell data = Grid[week, day];
-                        <Cell Data="data"/>
+                        <Cell Revealed="OnCellRevealed" Data="data"/>
                     }
 
                 </div>
