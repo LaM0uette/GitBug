@@ -4,16 +4,20 @@
 
 <div class="page">
     
+    <VerticalSpacer Value="50"/>
+
     <div class="contribution-header">
-        
+
         <div class="bug-counter">
-            
+
             <img src="/_content/GitBug.Shared/img/icons/bug.svg" class="bug-counter__icon" alt="Bug Counter"/>
-            <p class="bug-counter__count">@BugResolved/@TotalBugCount</p>
-            
+            <p class="bug-counter__count">@BugResolved.ToString("D2") / @TotalBugCount.ToString("D2")</p>
+
         </div>
-        
+
     </div>
+    
+    <VerticalSpacer Value="80"/>
 
     <div class="contribution-grid">
 

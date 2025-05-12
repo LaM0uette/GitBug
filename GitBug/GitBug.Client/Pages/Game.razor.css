@@ -3,18 +3,28 @@
     height: 100vh;
 
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: start;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
 }
 
 
-.bug-counter {
+.contribution-header {
+    width: 100%;
+
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+}
+
+.bug-counter {
+    width: 100%;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .bug-counter__icon {
@@ -23,6 +33,9 @@
 }
 
 .bug-counter__count {
+    text-align: center;
+    width: 140px;
+    
     font-size: 2em;
     font-family: var(--font-bold), sans-serif;
     color: var(--color-text-primary);
@@ -30,9 +43,6 @@
 
 
 .contribution-grid {
-    position: relative;
-    top: 10%;
-
     display: flex;
     flex-direction: row;
     justify-content: center;
